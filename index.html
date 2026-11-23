@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Music Website</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, pink, lavender);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 15px;
+      color: #70205e;
+    }
+    h1 { font-size: 40px; }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 650px;
+      margin: auto;
+      box-shadow: 0 5px 20px #999;
+    }
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 12px;
+    }
+    #heart {
+      font-size: 55px;
+      position: relative;
+    }
+    button {
+      background: #d63384;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Welcome to My Music Website!</h1>
+    <p>Music makes every day beautiful!</p>
+    <h2>My Favorite Song</h2>
+    <iframe
+      src="https://www.youtube.com/embed/9bZkp7q19f0"
+      title="Music Video"
+      allowfullscreen>
+    </iframe>
+    <h2>JavaScript Heart Animation</h2>
+    <div id="heart">❤️</div>
+    <p id="message">Click the button!</p>
+    <button onclick="animateHeart()">Animate Heart</button>
+  </div>
+  <script>
+    function animateHeart() {
+      const heart = document.getElementById("heart");
+      const message = document.getElementById("message");
+      let size = 55;
+      let growing = true;
+      message.textContent = "Music is love!";
+      const timer = setInterval(function() {
+        size += growing ? 2 : -2;
+        heart.style.fontSize = size + "px";
+        if (size >= 95) growing = false;
+        if (size <= 55) {
+          clearInterval(timer);
+        }
+      }, 25);
+    }
+  </script>
+</body>
+</html>
